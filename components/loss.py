@@ -9,7 +9,8 @@ import matplotlib.gridspec as gridspec
 import os
 import seaborn as sns
 from components.utility import to_device
-
+from dm_control import suite
+import cv2
 
 # set the backend
 plt.switch_backend('agg')
