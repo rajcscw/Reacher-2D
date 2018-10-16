@@ -54,7 +54,7 @@ def manipulator_2d_get_angles(l1, l2, l3):
     beta = find_angle(l2_)
 
     # gamma
-    # rotate l3 to alpha first
+    # rotate l3 to alpha and beta first
     l3_ = apply_rotation(l3, -alpha)
     l3_ = apply_rotation(l3_, -beta)
     gamma = find_angle(l3_)

@@ -65,7 +65,7 @@ class PyTorchModel:
         self.optimizer = torch.optim.RMSprop(params=self.net.parameters(), lr=float(config["optimizer"]["lr"]))
 
     def forward(self, input):
-        
+
         # may be send it to GPU again (TBD)
         self.net = self.__to_device(self.net)
 
@@ -75,7 +75,7 @@ class PyTorchModel:
     def get_param_value(self, name):
         """
         recursively get the value of the parameter
-        :param name: parameter name and its data type 
+        :param name: parameter name and its data type
         :return: return the parameter value as a numpy array
         """
 
