@@ -133,7 +133,7 @@ class LinearKinematics:
 
         # then run for 20 episodes and get the average loss
         loss = 0
-        times = self.config["SPSA"]["n_evals"] if not eval else 1
+        times = self.config["SPSA"]["n_evals"]
         for i in range(times):
             # randomly generate a target
             l1 = np.random.randint(-3,3,2)
@@ -278,7 +278,7 @@ class NonLinearKinematics:
 
         # then run for 20 episodes and get the average loss
         loss = 0
-        times = self.config["SPSA"]["n_evals"] if not eval else 1
+        times = self.config["SPSA"]["n_evals"]
         for i in range(times):
             # randomly generate a target
             l1 = np.random.randint(-3,3,2)
