@@ -66,6 +66,6 @@ class RMSProp(Optimizer):
         step = (gradient / (torch.sqrt(self.gradient_cache[parameter_name]) + 1e-8))
 
         # gradient ascent
-        parameter_value = parameter_value - (self.get_learning_rate() * step)
+        parameter_value = parameter_value + (self.get_learning_rate() * step)
 
         return parameter_value

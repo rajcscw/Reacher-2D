@@ -43,7 +43,7 @@ def find_vector(l, theta):
     return vector_
 
 
-def manipulator_2d_get_angles(l1, l2, l3):
+def manipulator_2d_get_angles(l1, l2, l3): # during backward (feedback)
 
     # alpha
     alpha = find_angle(l1)
@@ -62,29 +62,16 @@ def manipulator_2d_get_angles(l1, l2, l3):
     return alpha, beta, gamma
 
 
-def manipulator_2d_get_angles_2j(l1, l2):
+def manipulator_2d_get_arms(alpha, beta, gamma, l1, l2, l3):  # during forward
 
-    # alpha
-    alpha = find_angle(l1)
-
-    # beta
-    # rotate l2 to alpha first
-    l2_ = apply_rotation(l2, -alpha)
-    beta = find_angle(l2_)
-
-    return alpha, beta
-
-
-def manipulator_2d_get_arms(alpha, beta, gamma, l1, l2, l3):
-
-    # l1
+    # l1 - Q tranformation
     l1_ = find_vector(l1, alpha)
 
-    # l2
+    # l2 - Q tranformation + T transformation
     l2_ = find_vector(l2, beta)
     l2_ = apply_rotation(l2_, alpha)
 
-    # l3
+    # l3 - Q transformation + T transformation + T transformation
     l3_ = find_vector(l3, gamma)
     l3_ = apply_rotation(l3_, beta)
     l3_ = apply_rotation(l3_, alpha)
@@ -111,16 +98,3 @@ def controller(l1, l2, l3, alpha_new, beta_new, gamma_new):
     l3_ = apply_rotation(l3, last)
 
     return l1_, l2_, l3_
-
-
-def controller_2j(l1, l2, alpha_new, beta_new):
-    # get current angles
-    alpha, beta, = manipulator_2d_get_angles_2j(l1, l2)
-
-    # apply the transformations
-    last = alpha_new - alpha
-    l1_ = apply_rotation(l1, last)
-    last = last + beta_new - beta
-    l2_ = apply_rotation(l2, last)
-
-    return l1_, l2_

@@ -8,8 +8,8 @@ cur_path = os.path.dirname(os.path.realpath(__file__))
 save_loc = cur_path + "/outputs"
 
 # run 50 times and get the average error
-n_evals = 50
-d = 3
+n_evals = 100
+d = 1e-3
 episode_length = 30
 average_error = run(n_evals, d, episode_length, save_loc)
 

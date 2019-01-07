@@ -1,0 +1,22 @@
+# model size
+model:
+  hidden_size: 30
+  layers: 3
+  episode_length: 30
+
+# SPSA Parameters
+SPSA:
+    n_workers: 16
+    a: 1e-2
+    c: 1e-1
+    k: 100
+    A: 10
+    alpha: 1e-1
+    gamma: 1e-1
+    noise: 0
+    decay: 0
+    lr_decay: 0
+    momentum: 0.9
+    noise: 0.0
+    decay: 0
+    n_evals: 1

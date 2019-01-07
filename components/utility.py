@@ -24,9 +24,10 @@ def plot_learning_curve(file, title, series, value="Loss"):
     sns.set_context("paper")
     plt.title(title, fontsize=10)
     sns.tsplot(data=series, time="Iteration", unit="run", condition="strategy", value=value)
-    plt.legend(loc="upper right", fontsize=10)
+    plt.legend(loc="upper right", fontsize=15)
     plt.ylabel(value, fontsize=10)
     plt.xlabel("Iteration", fontsize=10)
+    plt.legend(loc=4)
     plt.savefig(file)
 
 

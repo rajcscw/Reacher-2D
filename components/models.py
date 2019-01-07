@@ -24,7 +24,7 @@ class PyTorchModel:
         self.device = device
         self.net = self.__to_device(self.net)
 
-        print("The current device is now set to {}".format(self.device))
+        print("\n The current device is now set to {}".format(self.device))
 
         # parameters
         self.parameters = list(torch.nn.Module.named_parameters(self.net))

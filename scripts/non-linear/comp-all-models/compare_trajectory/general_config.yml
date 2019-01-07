@@ -1,0 +1,12 @@
+env:
+  radius: 2.0
+  diff: True
+
+# iterations and other batch parameters
+log:
+  runs: 5
+  iterations: 5000
+  average_every: 50
+  reset_every: 1
+  save_every: 100
+  eval_every: 50

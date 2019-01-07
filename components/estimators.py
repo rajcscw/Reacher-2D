@@ -27,8 +27,8 @@ class PerturbRunner:
 
         # measure the loss function at perturbations
         self.loss_function.parameter_name = self.current_parameter
-        loss_plus = self.loss_function(param_plus)
-        loss_minus = self.loss_function(param_minus)
+        loss_plus, _ = self.loss_function(param_plus)
+        loss_minus, _ = self.loss_function(param_minus)
 
         return (loss_plus, loss_minus), delta * scale
 
